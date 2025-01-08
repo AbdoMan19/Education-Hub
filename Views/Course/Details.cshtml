@@ -1,0 +1,18 @@
+﻿@model MVC_Task.DB.Models.Course
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<h2>Course Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text"><strong>Degree:</strong> @(Model.Degree.HasValue ? Model.Degree.Value.ToString("F2") : "N/A")</p>
+        <p class="card-text"><strong>Minimum Degree:</strong> @Model.MinDegree</p>
+        <p class="card-text"><strong>Department:</strong> @(Model.Department != null ? Model.Department.Name : "N/A")</p>
+        <a asp-action="Edit" asp-route-id="@Model.Id" asp-controller="Course" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" asp-controller="Course" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

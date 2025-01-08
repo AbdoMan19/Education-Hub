@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controllers",
+    "\\DB",
+    "\\DB\\CustomValidation",
+    "\\DB\\Models",
+    "\\Views",
+    "\\Views\\Course"
+  ],
+  "SelectedNode": "\\DB\\CustomValidation\\UniqueNameAttribute.cs",
+  "PreviewInSolutionExplorer": false
+}

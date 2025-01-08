@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Education App</h1>
+    <p class="lead">Manage Courses, Departments, Instructors, and Trainees efficiently.</p>
+    <hr class="my-4" />
+    <p>Get started by exploring the sections below:</p>
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-primary btn-lg mx-2" asp-controller="Course" asp-action="Index" role="button">Manage Courses</a>
+        <a class="btn btn-secondary btn-lg mx-2" asp-controller="Department" asp-action="Index" role="button">Manage Departments</a>
+    </div>
+</div>

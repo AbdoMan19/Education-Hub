@@ -1,0 +1,20 @@
+﻿@model MVC_Task.Services.ViewModels.CourseResultVM.CourseResultVMToAdd
+
+
+@{
+    ViewData["Title"] = "Edit Course Result";
+}
+
+<h1>Edit Course Result</h1>
+
+<form asp-action="Edit">
+    <partial name="_CourseResultForm" />
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

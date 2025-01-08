@@ -1,0 +1,19 @@
+﻿@* Views/Course/Create.cshtml *@
+@model MVC_Task.DB.Models.Trainee
+
+@{
+    ViewData["Title"] = "Edit Trainee";
+}
+
+<h2>Edit Trainee</h2>
+
+<form asp-action="Edit" method="post" asp-controller="Trainee">
+    <partial name="_TraineeForm" />
+    <br />
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -1,0 +1,18 @@
+﻿@model MVC_Task.DB.Models.Instructor
+
+@{
+    ViewData["Title"] = "Edit Instructor";
+}
+
+<h2>Edit Instructor</h2>
+
+<form asp-action="Edit" method="post" asp-controller="Instructor">
+    <partial name="_InstructorForm" />
+    <br />
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

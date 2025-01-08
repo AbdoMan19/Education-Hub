@@ -1,0 +1,16 @@
+﻿@model MVC_Task.DB.Models.Department
+
+@{
+    ViewData["Title"] = "Department Details";
+}
+
+<h2>Department Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text"><strong>Manager:</strong> @(Model.Manager ??"N/A")</p>
+        <a asp-action="Edit" asp-route-id="@Model.Id" asp-controller="Department" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" asp-controller="Department" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MVC_Task.DB.Models.Course>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h2>Courses</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New Course</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Degree</th>
+            <th>Min Degree</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Name</td>
+                <td>@(course.Degree.HasValue ? course.Degree.Value.ToString("F2") : "N/A")</td>
+                <td>@course.MinDegree</td>
+                <td>@(course.Department != null ? course.Department.Name : "N/A")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@course.Id" asp-controller="Course" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Edit" asp-route-id="@course.Id" asp-controller="Course" class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@course.Id" asp-controller="Course" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

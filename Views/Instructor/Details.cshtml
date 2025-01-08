@@ -1,0 +1,29 @@
+﻿@model MVC_Task.DB.Models.Instructor
+
+@{
+    ViewData["Title"] = "Instructor Details";
+}
+
+<h2>Instructor Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+
+        @if (!string.IsNullOrEmpty(Model.Image))
+        {
+            <p class="card-text"><strong>Image:</strong> <img src="@Model.Image" alt="@Model.Name" style="max-width: 100px;" /></p>
+        }
+
+        <p class="card-text"><strong>Salary:</strong> @(Model.Salary.HasValue ? Model.Salary.Value.ToString("C") : "N/A")</p>
+
+        <p class="card-text"><strong>Address:</strong> @(string.IsNullOrEmpty(Model.Address) ? "N/A" : Model.Address)</p>
+
+        <p class="card-text"><strong>Department:</strong> @(Model.Department != null ? Model.Department.Name : "N/A")</p>
+
+        <p class="card-text"><strong>Course:</strong> @(Model.Course != null ? Model.Course.Name : "N/A")</p>
+
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@using MVC_Task.Services.ViewModels.TraineeVM
+@model TraineeViewModel
+
+@{
+    ViewData["Title"] = "Trainee Details";
+}
+
+<h2>Trainee Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text"><strong>Department:</strong> @(Model.Department ?? "N/A")</p>
+        <p class="card-text"><strong>Grade:</strong> @(Model.Grade.HasValue ? Model.Grade.Value.ToString("F2") : "N/A")</p>
+        <div>
+            <strong>Image:</strong>
+            <img src="/images/@(Model.Image ?? "default.jpg")" alt="Trainee Image" style="width: 100px; height: 100px;" />
+        </div>
+        <h4>Courses</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model.Courses)
+                {
+                    <tr>
+                        <td>@course.Name</td>
+                        <td style="color:@(course.MinDegree <= course.Grade ? "green" : "red")">@course.Grade</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-action="Edit" asp-route-id="@Model.Id" asp-controller="Trainee" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" asp-controller="Trainee" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

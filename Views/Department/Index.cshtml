@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MVC_Task.DB.Models.Department>
+
+@{
+    ViewData["Title"] = "Department";
+}
+
+<h2>Department</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New Department</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Manager</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <td>@department.Name</td>
+                <td>@(department.Manager ?? "N/A")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@department.Id" asp-controller="Department" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Edit" asp-route-id="@department.Id" asp-controller="Department" class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@department.Id" asp-controller="Department" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
